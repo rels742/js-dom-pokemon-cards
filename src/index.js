@@ -67,35 +67,18 @@ for (let i = 0; i < data.length; i++) {
 
   const pokemeonAppearances = document.createElement("ul");
   pokemeonAppearances.setAttribute("class", "card--text");
+  pokemeonAppearances.innerText = "appears in: ".toUpperCase();
   card.append(pokemeonAppearances);
 
   for (let i = 0; i < pokemon.game_indices.length; i++) {
     const gameHistory = document.createElement("li");
+    gameHistory.style.display = "inline";
+
     gameHistory.innerText =
-      "appears in".toUpperCase() +
-      ": " +
-      pokemon.game_indices[i].version.name.toUpperCase() +
-      ", ";
+      // "appears in".toUpperCase() +
+      // ": " +
+      pokemon.game_indices[i].version.name.toUpperCase() + ", ";
 
     pokemeonAppearances.append(gameHistory);
   }
-
-  // const gameHistory = document.createElement("li");
-  // gameHistory.innerText =
-  //   "appears in".toUpperCase() +
-  //   ": " +
-  //   pokemon.game_indices[0].version.name.toUpperCase() +
-  //   ", " +
-  //   pokemon.game_indices[1].version.name.toUpperCase() +
-  //   ", " +
-  //   pokemon.game_indices[2].version.name.toUpperCase() +
-  //   ", " +
-  //   pokemon.game_indices[3].version.name.toUpperCase() +
-  //   ", " +
-  //   pokemon.game_indices[4].version.name.toUpperCase();
 }
-
-//You can start simple and just render a single
-//pokemon card from the first element
-console.log(pokemon);
-// console.log(data);
