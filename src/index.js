@@ -24,11 +24,11 @@ for (let i = 0; i < data.length; i++) {
   card.append(pokemonStats);
 
   const hpLi = document.createElement("li");
+  pokemonStats.append(hpLi);
   hpLi.innerText =
     pokemon.stats[0].stat.name.toUpperCase() +
     ": " +
     pokemon.stats[0].base_stat;
-  pokemonStats.append(hpLi);
 
   const attackLi = document.createElement("li");
   attackLi.innerText =
@@ -64,6 +64,35 @@ for (let i = 0; i < data.length; i++) {
     ": " +
     pokemon.stats[5].base_stat;
   pokemonStats.append(speedLi);
+
+  const pokemeonAppearances = document.createElement("ul");
+  pokemeonAppearances.setAttribute("class", "card--text");
+  card.append(pokemeonAppearances);
+
+  for (let i = 0; i < pokemon.game_indices.length; i++) {
+    const gameHistory = document.createElement("li");
+    gameHistory.innerText =
+      "appears in".toUpperCase() +
+      ": " +
+      pokemon.game_indices[i].version.name.toUpperCase() +
+      ", ";
+
+    pokemeonAppearances.append(gameHistory);
+  }
+
+  // const gameHistory = document.createElement("li");
+  // gameHistory.innerText =
+  //   "appears in".toUpperCase() +
+  //   ": " +
+  //   pokemon.game_indices[0].version.name.toUpperCase() +
+  //   ", " +
+  //   pokemon.game_indices[1].version.name.toUpperCase() +
+  //   ", " +
+  //   pokemon.game_indices[2].version.name.toUpperCase() +
+  //   ", " +
+  //   pokemon.game_indices[3].version.name.toUpperCase() +
+  //   ", " +
+  //   pokemon.game_indices[4].version.name.toUpperCase();
 }
 
 //You can start simple and just render a single
